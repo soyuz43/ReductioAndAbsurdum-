@@ -1,16 +1,16 @@
 ﻿// Define ProductTypes
-        List<ProductType> productTypes = new List<ProductType>
+        List<ProductType> productTypes = new List<ProductType>()
         {
-            new ProductType { Id = 1, Name = "Potions" },
-            new ProductType { Id = 2, Name = "Apparel" },
-            new ProductType { Id = 3, Name = "Enchanted Objects" },
-            new ProductType { Id = 4, Name = "Wands" }
+            new ProductType() { Id = 1, Name = "Potions" },
+            new ProductType() { Id = 2, Name = "Apparel" },
+            new ProductType() { Id = 3, Name = "Enchanted Objects" },
+            new ProductType() { Id = 4, Name = "Wands" }
         };
 
         // Create a list of products
         List<Product> products = new List<Product>
         {
-            new Product
+            new Product()
             {
                 Name = "Love Potion",
                 Price = 100.00M,
@@ -18,7 +18,7 @@
                 ProductTypeId = 1,  // Potions
                 DataEntered = DateTime.Now
             },
-            new Product
+            new Product()
             {
                 Name = "Wizard Robe",
                 Price = 150.00M,
@@ -26,7 +26,7 @@
                 ProductTypeId = 2,  // Apparel
                 DataEntered = DateTime.Now.AddDays(-2)
             },
-            new Product
+            new Product()
             {
                 Name = "Cursed Mirror",
                 Price = 250.00M,
@@ -34,7 +34,7 @@
                 ProductTypeId = 3,  // Enchanted Objects
                 DataEntered = DateTime.Now.AddDays(-5)
             },
-            new Product
+            new Product()
             {
                 Name = "Elder Wand",
                 Price = 500.00M,
@@ -42,7 +42,7 @@
                 ProductTypeId = 4,  // Wands
                 DataEntered = DateTime.Now.AddDays(-10)
             },
-            new Product
+            new Product()
             {
                 Name = "Healing Potion",
                 Price = 75.00M,
