@@ -92,7 +92,7 @@ do
     }
     else if (choice == "5")
     {
-        Console.WriteLine("Updating a product...");
+        UpdateProduct(products, productTypes);
     }
     else if (choice == "0")
     {
@@ -247,4 +247,84 @@ void DeleteProduct(List<Product> products)
     {
         Console.WriteLine($"An error occurred: {ex.Message}");
     }
+}
+
+void UpdateProduct(List<Product> products, List<ProductType> productTypes)
+{
+Console.WriteLine("Enter the name of the product to update:");
+string nameToUpdate = Console.ReadLine();
+
+if (string.IsNullOrEmpty(nameToUpdate))
+{
+    Console.WriteLine("Product name cannot be empty.");
+    return;
+}
+
+try
+{
+    Product productToUpdate = products.FirstOrDefault(p => p.Name == nameToUpdate);
+
+    if (productToUpdate != null)
+    {
+        Console.WriteLine($"Updating product: {productToUpdate.Name}");
+
+        Console.WriteLine("Enter new product name (or press Enter to keep the same):");
+        string newName = Console.ReadLine();
+        if (!string.IsNullOrEmpty(newName))
+        {
+            productToUpdate.Name = newName;
+        }
+
+        Console.WriteLine("Select new product category (or press Enter to keep the same):");
+        foreach (var productType in productTypes)
+        {
+            Console.WriteLine($"{productType.Id}. {productType.Name}");
+        }
+        Console.Write("Enter category number: ");
+        string productTypeIdInput = Console.ReadLine();
+        if (!string.IsNullOrEmpty(productTypeIdInput) && int.TryParse(productTypeIdInput, out int productTypeId))
+        {
+            var selectedProductType = productTypes.FirstOrDefault(pt => pt.Id == productTypeId);
+            if (selectedProductType != null)
+            {
+                productToUpdate.ProductTypeId = productTypeId;
+            }
+            else
+            {
+                Console.WriteLine("Invalid product type ID. Keeping the same.");
+            }
+        }
+
+        Console.WriteLine("Enter new product price (or press Enter to keep the same):");
+        string priceInput = Console.ReadLine();
+        if (!string.IsNullOrEmpty(priceInput) && decimal.TryParse(priceInput, out decimal price))
+        {
+            productToUpdate.Price = price;
+        }
+
+        Console.WriteLine("Is the product available? (y/n, or press Enter to keep the same):");
+        string isAvailableInput = Console.ReadLine().ToLower();
+        if (!string.IsNullOrEmpty(isAvailableInput))
+        {
+            if (isAvailableInput == "y")
+            {
+                productToUpdate.IsAvailable = true;
+            }
+            else if (isAvailableInput == "n")
+            {
+                productToUpdate.IsAvailable = false;
+            }
+        }
+
+        Console.WriteLine($"{nameToUpdate} updated successfully!");
+    }
+    else
+    {
+        Console.WriteLine($"Product {nameToUpdate} not found.");
+    }
+}
+catch (Exception ex)
+{
+    Console.WriteLine($"An error occurred: {ex.Message}");
+}
 }
