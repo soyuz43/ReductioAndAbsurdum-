@@ -1,4 +1,4 @@
-﻿
+
 
 
 // Define ProductTypes
@@ -84,7 +84,7 @@ do
     }
     else if (choice == "3")
     {
-        Console.WriteLine("Adding a new product...");
+        AddProduct(products, productTypes);
     }
     else if (choice == "4")
     {
@@ -161,4 +161,59 @@ Days on Shelf: {(DateTime.Now - p.DataEntered).Days}
 -------------------------"));
 
     Console.ReadLine();
+}
+
+void AddProduct(List<Product> products, List<ProductType> productTypes)
+{
+    try
+    {
+        Console.WriteLine("Enter product name:");
+        string name = Console.ReadLine();
+
+        Console.WriteLine("Select product category:");
+        foreach (var productType in productTypes)
+        {
+            Console.WriteLine($"{productType.Id}. {productType.Name}");
+        }
+
+        if (!int.TryParse(Console.ReadLine(), out int productTypeId))
+        {
+            Console.WriteLine("Invalid product type ID.");
+            return;
+        }
+
+        var selectedProductType = productTypes.FirstOrDefault(pt => pt.Id == productTypeId);
+        if (selectedProductType == null)
+        {
+            Console.WriteLine("Product type not found.");
+            return;
+        }
+
+        Console.WriteLine("Enter product price:");
+        if (!decimal.TryParse(Console.ReadLine(), out decimal price))
+        {
+            Console.WriteLine("Invalid price.");
+            return;
+        }
+
+        Console.WriteLine("Is the product available? (y/n)");
+        bool isAvailable = Console.ReadLine().ToLower() == "y";
+
+        Product newProduct = new Product()
+        {
+            Name = name,
+            ProductTypeId = productTypeId,
+            Price = price,
+            IsAvailable = isAvailable,
+            DataEntered = DateTime.Now
+        };
+
+        products.Add(newProduct);
+
+        Console.WriteLine($"{name} added successfully!");
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"An error occurred: {ex.Message}");
+    }
 }
