@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jackh\\workspace\\csharp\\ReductioAndAbsurdum-\\InventoryApp.csproj": {}
+    "C:\\Users\\thisi\\workspace\\server\\ReductioAndAbsurdum\\InventoryApp\\InventoryApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jackh\\workspace\\csharp\\ReductioAndAbsurdum-\\InventoryApp.csproj": {
+    "C:\\Users\\thisi\\workspace\\server\\ReductioAndAbsurdum\\InventoryApp\\InventoryApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jackh\\workspace\\csharp\\ReductioAndAbsurdum-\\InventoryApp.csproj",
+        "projectUniqueName": "C:\\Users\\thisi\\workspace\\server\\ReductioAndAbsurdum\\InventoryApp\\InventoryApp.csproj",
         "projectName": "InventoryApp",
-        "projectPath": "C:\\Users\\jackh\\workspace\\csharp\\ReductioAndAbsurdum-\\InventoryApp.csproj",
-        "packagesPath": "C:\\Users\\jackh\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jackh\\workspace\\csharp\\ReductioAndAbsurdum-\\obj\\",
+        "projectPath": "C:\\Users\\thisi\\workspace\\server\\ReductioAndAbsurdum\\InventoryApp\\InventoryApp.csproj",
+        "packagesPath": "C:\\Users\\thisi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\thisi\\workspace\\server\\ReductioAndAbsurdum\\InventoryApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\jackh\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\thisi\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -32,7 +32,13 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -53,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

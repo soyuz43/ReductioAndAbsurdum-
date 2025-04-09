@@ -88,7 +88,7 @@ do
     }
     else if (choice == "4")
     {
-        Console.WriteLine("Deleting a product...");
+      DeleteProduct(products);
     }
     else if (choice == "5")
     {
@@ -211,6 +211,37 @@ void AddProduct(List<Product> products, List<ProductType> productTypes)
         products.Add(newProduct);
 
         Console.WriteLine($"{name} added successfully!");
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"An error occurred: {ex.Message}");
+    }
+}
+
+void DeleteProduct(List<Product> products)
+{
+    Console.WriteLine("Enter the name of the product to delete:");
+    string nameToDelete = Console.ReadLine();
+
+    if (string.IsNullOrEmpty(nameToDelete))
+    {
+        Console.WriteLine("Product name cannot be empty.");
+        return;
+    }
+
+    try
+    {
+        Product productToDelete = products.FirstOrDefault(p => p.Name == nameToDelete);
+
+        if (productToDelete != null)
+        {
+            products.Remove(productToDelete);
+            Console.WriteLine($"{nameToDelete} deleted successfully!");
+        }
+        else
+        {
+            Console.WriteLine($"Product {nameToDelete} not found.");
+        }
     }
     catch (Exception ex)
     {
